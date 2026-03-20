@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskFlow — IdeaForge</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="task-flow.png" />
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-badge">✦ TaskFlow</div>
+        <h1>IdeaForge <span>Done!</span></h1>
+        <p class="subtitle">Your minimal task manager</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Input Card -->
+        <div class="input-card">
+            <input type="text" id="task-input" placeholder="Add a new task... (Press Enter)" maxlength="200" />
+            <button class="add-btn" onclick="addTask()">+ Add</button>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-pill">Total: <span id="count-total">0</span></div>
+            <div class="stat-pill">Done: <span id="count-done">0</span></div>
+            <div class="stat-pill">Pending: <span id="count-pending">0</span></div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+            <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+            <button class="filter-btn" onclick="setFilter('pending', this)">Pending</button>
+            <button class="filter-btn" onclick="setFilter('done', this)">Completed</button>
+        </div>
+
+        <!-- Task List -->
+        <div id="task-list"></div>
+
+        <!-- Empty State -->
+        <div class="empty" id="empty-state">
+            <div class="empty-icon">📋</div>
+            <h3>No tasks here!</h3>
+            <p>Add your first task above to get started.</p>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="bottom-bar">
+            <button class="clear-btn" onclick="clearCompleted()">Clear Completed</button>
+            <button class="clear-btn clear-all-btn" onclick="clearAllTasks()">Clear All Tasks</button>
+        </div>
+
+    </div>
+
+    <!-- API Status Badge -->
+    <div class="api-status">
+        <div class="api-dot" id="api-dot"></div>
+        <span id="api-label">Backend Connected</span>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
